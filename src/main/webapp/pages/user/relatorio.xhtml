@@ -38,25 +38,39 @@
                                     <p:column headerText="Ouvinte" sortBy="#{frequencia_var.ouvinte.nome}" filterBy="#{frequencia_var.ouvinte.nome}" >
                                         <h:outputText value="#{frequencia_var.ouvinte.nome}" />
                                     </p:column>
+                                    
+                                    <p:column headerText="Sexo" visible="false">
+                                        <h:outputText value="#{frequencia_var.ouvinte.sexo}" />
+                                    </p:column>
+                                    
+                                    <p:column headerText="Data de Nascimento" visible="false">
+                                        <h:outputText value="#{frequencia_var.ouvinte.dataNascimento}">
+                                            <f:convertDateTime type="localDateTime"/>
+                                        </h:outputText>
+                                    </p:column>
 
+                                    <p:column headerText="Telefone" visible="false">
+                                        <h:outputText value="#{frequencia_var.ouvinte.telefone}" />
+                                    </p:column>
+                                    
                                     <p:column headerText="E-mail" visible="false">
                                         <h:outputText value="#{frequencia_var.ouvinte.email}" />
                                     </p:column>
-                                    <p:column headerText="CEP" visible="false">
-                                        <h:outputText value="#{frequencia_var.ouvinte.cep}" />
+                                    
+                                    <p:column headerText="Rede social" visible="false">
+                                        <h:outputText value="#{frequencia_var.ouvinte.redeSocial}" />
                                     </p:column>
-                                    <p:column headerText="Bairro" visible="false">
-                                        <h:outputText value="#{frequencia_var.ouvinte.cep}" />
+                                    
+                                    <p:column headerText="Instituição" visible="false">
+                                        <h:outputText value="#{frequencia_var.ouvinte.instituicao}" />
                                     </p:column>
-                                    <p:column headerText="Logradouro" visible="false">
-                                        <h:outputText value="#{frequencia_var.ouvinte.logradouro}" />
+                                    
+                                    <p:column headerText="Profissão" visible="false">
+                                        <h:outputText value="#{frequencia_var.ouvinte.profissao}" />
                                     </p:column>
-                                    <p:column headerText="Número" visible="false">
-                                        <h:outputText value="#{frequencia_var.ouvinte.numero}" />
-                                    </p:column>
-
-                                    <p:column headerText="Tipo" sortBy="#{frequencia_var.ouvinte.presencial ? 'PRESENCIAL' : 'REMOTO'}">
-                                        <h:outputText value="#{frequencia_var.ouvinte.presencial ? 'PRESENCIAL' : 'REMOTO'}" />
+                                    
+                                    <p:column headerText="Conhecimento" visible="false">
+                                        <h:outputText value="#{frequencia_var.ouvinte.conhecimento}" />
                                     </p:column>
 
                                     <p:column headerText="Presença" exportable="false" sortBy="#{frequencia_var.presenca1 ? 'PRESENTE' : 'AUSENTE'}">
@@ -88,17 +102,12 @@
 
                                 </p:dataTable>
                             </div>
-                            <div class="ui-g-12 ui-md-8"/>
-                            <div class="ui-g-12 ui-md-4">
+                            <div class="ui-g-12 ui-md-9"/>
+                            <div class="ui-g-12 ui-md-3">
 
-                                <div class="ui-g-6">
-                                    <p:commandButton value="PDF" action="#{relatorioMB.exportaPdf()}" ajax="false" icon="ui-icon-file-download"/>
-                                </div>
-                                <div class="ui-g-6">
-                                    <p:commandButton value="EXCEL" ajax="false" icon="ui-icon-file-download" style="background-color: #F57F17">
-                                        <p:dataExporter type="xls" target="tbl_relatorio"  fileName="relatorio-presença"/>
-                                    </p:commandButton>
-                                </div>    
+                                <p:commandButton value="EXCEL" ajax="false" icon="ui-icon-file-download" style="background-color: #F57F17">
+                                    <p:dataExporter type="xls" target="tbl_relatorio"  fileName="relatorio-presença"/>
+                                </p:commandButton>
                             </div>
                         </div>
 

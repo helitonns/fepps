@@ -5,10 +5,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
    
         <!-- DESENVOLVIMENTO -->
-        <jta-data-source>homologacao</jta-data-source>
+        <!--<jta-data-source>homologacao</jta-data-source>-->
    
         <!-- PRODUCAO -->
-        <!--<jta-data-source>prevencaoevida</jta-data-source>-->
+        <jta-data-source>fepps</jta-data-source>
     
         <properties>
             <!--SEM ESSA CONFIGURAÇÃO NÃO FUNCIONA-->
@@ -22,7 +22,7 @@
             <!--ESQUEMA USADO NA HOMOLOGACAO/IMPLANTACAO-->
             <property name="hibernate.default_schema" value="fepps"/>
       
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
      
         </properties>
     </persistence-unit>

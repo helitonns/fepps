@@ -1,6 +1,26 @@
 /* Add your variable customizations of layout here */
 /* roboto-300 - latin */
 
+
+
+@media(max-width: 1500px){
+    .logo {
+        width: 1000px !important;
+    }
+}
+
+@media(max-width: 1250px){
+    .logo {
+        width: 750px !important;
+    }
+}
+
+@media(max-width: 835px){
+    .logo {
+        width: 420px !important;
+    }
+}
+
 @media(max-width: 494px){
     .logo {
         width: 280px !important;
@@ -12,6 +32,7 @@
         width: 230px !important;
     }
 }
+
 
 
 @font-face {

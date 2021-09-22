@@ -92,22 +92,22 @@ public class IndexMB implements Serializable {
                 FacesUtils.addWarnMessageFlashScoped("O número de vagas presenciais já foram preenchidas. Selecione a opção para assistir ao evento REMOTAMENTE");
                 return "";
             } else {
-                if (ouvinteDAO.haOvinteComCPF(ouvinte.getCpf())) {
-                    FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse CPF");
-                    return "";
-                } else {
+//                if (ouvinteDAO.haOvinteComCPF(ouvinte.getCpf())) {
+//                    FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse CPF");
+//                    return "";
+//                } else {
 
-                    if (!usuarioDAO.haOLogin(ouvinte.getEmail())) {
+//                    if (!usuarioDAO.haOLogin(ouvinte.getEmail())) {
 
-                        usuario.setNome(ouvinte.getNome().toUpperCase());
-                        usuario.setSenha(Criptografia.criptografarEmMD5(senha1));
-                        usuario.setStatus(true);
-                        usuario.setMatricula("0000");
-                        usuario.setTipo(TipoUsuario.OUVINTE);
-                        usuario.setLogin(ouvinte.getEmail().trim());
-
+//                        usuario.setNome(ouvinte.getNome().toUpperCase());
+//                        usuario.setSenha(Criptografia.criptografarEmMD5(senha1));
+//                        usuario.setStatus(true);
+//                        usuario.setMatricula("0000");
+//                        usuario.setTipo(TipoUsuario.OUVINTE);
+//                        usuario.setLogin(ouvinte.getEmail().trim());
+                        ouvinte.setPresencial(true);
                         ouvinteDAO.salvar(ouvinte);
-                        usuarioDAO.salvar(usuario);
+//                        usuarioDAO.salvar(usuario);
 
                         Frequencia f = new Frequencia();
                         f.setOuvinte(ouvinte);
@@ -123,16 +123,16 @@ public class IndexMB implements Serializable {
                         int mes = v.getDataEvento().getMonthValue();
                         int ano = v.getDataEvento().getYear();
                         String data = dia +"/"+ mes +"/"+ ano;
-                        if (ouvinte.isPresencial()) {
+//                        if (ouvinte.isPresencial()) {
                             FacesUtils.addInfoMessageFlashScoped("Na data "+ data +" compareça ao plenarinho para assistir ao evento!");
-                        } else {
-                            FacesUtils.addInfoMessageFlashScoped("Na data "+ data +" acesse o sistema clicando no botão \"Entrar\", no fim da página, para acompanhar o evento remotamente!");
-                        }
-                    } else {
-                        FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse e-mail, forneça outro!!!");
-                        return "";
-                    }
-                }
+//                        } else {
+//                            FacesUtils.addInfoMessageFlashScoped("Na data "+ data +" acesse o sistema clicando no botão \"Entrar\", no fim da página, para acompanhar o evento remotamente!");
+//                        }
+//                    } else {
+//                        FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse e-mail, forneça outro!!!");
+//                        return "";
+//                    }
+////                }
             }
 
         } catch (Exception e) {
@@ -148,15 +148,15 @@ public class IndexMB implements Serializable {
                 FacesUtils.addWarnMessageFlashScoped("O número de vagas presenciais já foram preenchidas. Selecione a opção para assistir ao evento REMOTAMENTE");
                 return "";
             } else {
-                if (ouvinteDAO.haOvinteComCPF(ouvinte.getCpf()) && ouvinte.getId() == null) {
-                    FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse CPF");
-                    return "";
-                } else {
+//                if (ouvinteDAO.haOvinteComCPF(ouvinte.getCpf()) && ouvinte.getId() == null) {
+//                    FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse CPF");
+//                    return "";
+//                } else {
                     if (ouvinte.getId() != null) {
                         ouvinteDAO.atualizar(ouvinte);
                         FacesUtils.addInfoMessageFlashScoped("Cadastro atualizado com sucesso!!!");
                     } else {
-
+                        ouvinte.setPresencial(true);
                         ouvinteDAO.salvar(ouvinte);
 
                         Frequencia f = new Frequencia();
@@ -168,7 +168,7 @@ public class IndexMB implements Serializable {
 
                         FacesUtils.addInfoMessageFlashScoped("Cadastro salvo com sucesso!!!");
                     }
-                }
+//                }
             }
         } catch (Exception e) {
             System.out.println("LOG: " + e.getCause().toString());
