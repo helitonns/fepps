@@ -88,10 +88,10 @@ public class IndexMB implements Serializable {
 
     public String salvarOuvinte() {
         try {
-            if ((quantidadeDeOuvintesPresenciais + 1) > evento.getNumeroDeVagas() && ouvinte.isPresencial()) {
-                FacesUtils.addWarnMessageFlashScoped("O número de vagas presenciais já foram preenchidas. Selecione a opção para assistir ao evento REMOTAMENTE");
-                return "";
-            } else {
+//            if ((quantidadeDeOuvintesPresenciais + 1) > evento.getNumeroDeVagas() && ouvinte.isPresencial()) {
+//                FacesUtils.addWarnMessageFlashScoped("O número de vagas presenciais já foram preenchidas. Selecione a opção para assistir ao evento REMOTAMENTE");
+//                return "";
+//            } else {
 //                if (ouvinteDAO.haOvinteComCPF(ouvinte.getCpf())) {
 //                    FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse CPF");
 //                    return "";
@@ -124,7 +124,7 @@ public class IndexMB implements Serializable {
                         int ano = v.getDataEvento().getYear();
                         String data = dia +"/"+ mes +"/"+ ano;
 //                        if (ouvinte.isPresencial()) {
-                            FacesUtils.addInfoMessageFlashScoped("Na data "+ data +" compareça ao plenarinho para assistir ao evento!");
+                            FacesUtils.addInfoMessageFlashScoped("Na data "+ data +" compareça à ALERR para assistir ao evento!");
 //                        } else {
 //                            FacesUtils.addInfoMessageFlashScoped("Na data "+ data +" acesse o sistema clicando no botão \"Entrar\", no fim da página, para acompanhar o evento remotamente!");
 //                        }
@@ -133,7 +133,7 @@ public class IndexMB implements Serializable {
 //                        return "";
 //                    }
 ////                }
-            }
+//            }
 
         } catch (Exception e) {
             System.out.println("LOG: " + e.getCause().toString());
@@ -144,10 +144,10 @@ public class IndexMB implements Serializable {
 
     public String cadastrarOuvinte() {
         try {
-            if ((quantidadeDeOuvintesPresenciais + 1) > evento.getNumeroDeVagas() && ouvinte.isPresencial()) {
-                FacesUtils.addWarnMessageFlashScoped("O número de vagas presenciais já foram preenchidas. Selecione a opção para assistir ao evento REMOTAMENTE");
-                return "";
-            } else {
+//            if ((quantidadeDeOuvintesPresenciais + 1) > evento.getNumeroDeVagas() && ouvinte.isPresencial()) {
+//                FacesUtils.addWarnMessageFlashScoped("O número de vagas presenciais já foram preenchidas. Selecione a opção para assistir ao evento REMOTAMENTE");
+//                return "";
+//            } else {
 //                if (ouvinteDAO.haOvinteComCPF(ouvinte.getCpf()) && ouvinte.getId() == null) {
 //                    FacesUtils.addWarnMessageFlashScoped("Já há um usuário cadastrado com esse CPF");
 //                    return "";
@@ -169,7 +169,7 @@ public class IndexMB implements Serializable {
                         FacesUtils.addInfoMessageFlashScoped("Cadastro salvo com sucesso!!!");
                     }
 //                }
-            }
+//            }
         } catch (Exception e) {
             System.out.println("LOG: " + e.getCause().toString());
 //            FacesUtils.addErrorMessageFlashScoped("Houve um erro ao salvar o cadastro!");
