@@ -5,10 +5,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
    
         <!-- DESENVOLVIMENTO -->
-        <jta-data-source>homologacao</jta-data-source>
+        <!--<jta-data-source>homologacao</jta-data-source>-->
    
         <!-- PRODUCAO -->
-        <!--<jta-data-source>fepps</jta-data-source>-->
+        <jta-data-source>fepps</jta-data-source>
     
         <properties>
             <!--SEM ESSA CONFIGURAÇÃO NÃO FUNCIONA-->
